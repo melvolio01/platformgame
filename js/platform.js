@@ -66,12 +66,7 @@ Level.prototype.isFinished = function() {
 };
 
 
-//Actors
-var actorChars = {
-  "@": Player,
-  "o": Coin,
-  "=": Lava, "|": Lava, "v": Lava
-};
+
 
 //Storing position and size of actors, using Vector
 function Vector (x, y) {
@@ -82,7 +77,14 @@ Vector.prototype.plus = function(other) {
 };
 //Scales vector by a given amount
 Vector.prototype.times = function(factor) {
-  return new Vector(this.x = factor, this.y * factor);
+  return new Vector(this.x * factor, this.y * factor);
+};
+
+//Actors
+var actorChars = {
+  "@": Player,
+  "o": Coin,
+  "=": Lava, "|": Lava, "v": Lava
 };
 
 //Constructor to build player type
@@ -100,11 +102,11 @@ function Lava(pos, ch) {
   this.pos = pos;
   this.size = new Vector(1, 1);
   if (ch == "=") {
-    this.speed = new Vector(2,0);
+    this.speed = new Vector(2, 0);
   } else if (ch == "|") {
-    this.speed = new Vector(0,2);
+    this.speed = new Vector(0, 2);
   } else if (ch == "v") {
-    this.speed = new Vector(0,3);
+    this.speed = new Vector(0, 3);
     this.repeatPos = pos;
   }
 }
@@ -160,7 +162,8 @@ DOMDisplay.prototype.drawBackground = function() {
 DOMDisplay.prototype.drawActors = function() {
   var wrap = elt("div");
   this.level.actors.forEach(function(actor) {
-    var rect = wrap.appendChild(elt("div", "actor", + actor.type));
+    var rect = wrap.appendChild(elt("div",
+                                    "actor " + actor.type));
     rect.style.width = actor.size.x * scale + "px";
     rect.style.height = actor.size.y * scale + "px";
     rect.style.left = actor.pos.x * scale + "px";
