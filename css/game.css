@@ -1,4 +1,4 @@
-.background     { background: rgb(52, 166, 251); border-spacing: 0; }
+.background     { background: rgb(52, 166, 251); border-spacing: 0;}
 .background td  { padding: 0;}
 .lava           { background: rgb(255, 100, 100); }
 .wall           { background: white; }
@@ -19,5 +19,11 @@
     overflow: hidden;
     max-width: 600px;
     max-height: 450px;
+    margin-left: 25%;
+    margin-top: 25%;
     position: relative;
+    border: 1px solid black;
+    background: rgb(52, 166, 251)
+
  }
+body          {  background-color: yellow;}

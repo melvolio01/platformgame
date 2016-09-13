@@ -5,12 +5,17 @@
     <title>Platform Game (from Eloquent Javascript)</title>
     <link href="./css/game.css" rel="stylesheet" type="text/css" media="all">
     <script src="./js/platform.js"></script>
+    <script src="./js/game_levels.js"></script>
+    <script src="./js/movement.js"></script>
 </head>
 
 <body>
    <script>
-      var simpleLevel = new Level(simpleLevelPlan);
-      var display = new DOMDisplay(document.body, simpleLevel);
+      // var simpleLevel = new Level(simpleLevelPlan);
+      var display = new DOMDisplay(document.body, GAME_LEVELS);
     </script>
+    <script>
+    runGame(GAME_LEVELS, DOMDisplay);
+  </script>
 </body>
 </html>
